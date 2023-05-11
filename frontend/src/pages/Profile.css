@@ -1,0 +1,90 @@
+.profile-pic{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.count-section{
+    border-right: 2px solid #c3c3c3;
+}
+
+.container{
+    width: 75vw;
+    /* background-color: #fff; */
+}
+
+
+/* .custom-btn{
+    padding: 1rem;
+    border-radius: 4px;
+} */
+
+.custom-btn-white{
+    border: 1px solid #6c6c6c;
+    background-color: #f3f3f3;
+    color: #000;
+    padding: 7px;
+
+    /* margin-left: 40px;
+    height: 40px; */
+}
+
+.custom-btn-pink{
+    border: 2px solid #f43756;
+    background-color: #f43756;
+    color: #fff;
+    padding: 14px;
+    width: 160px;
+    border-radius: 10px;
+}
+
+.upload-box{
+    height: 400px;
+    width: 360px;
+    border: 4px dotted gray;
+    border-radius: 10px;
+}
+
+
+.dropZoneOverlay, .fileUpload {
+    width: 283px; 
+    height: 71px;
+}
+.dropZoneOverlay { 
+    /* cursor: pointer; */
+    font-family: cursive;
+    position: absolute;
+    color: #7066fb;
+    top: 180px;
+    left: 50px;
+    text-align: center;
+}
+
+.fileUpload {
+    opacity: 0;
+    z-index: 1;
+    position: relative;
+    top: 167px;
+    left: 40px;
+
+    width: 300px; 
+    height: 71px;
+
+    cursor: pointer;
+
+}
+
+
+@media only screen and (max-width: 450px){
+    .container{
+        width: 100vw;
+        background-color: #fff;
+    }
+
+    .custom-btn-white{
+        border: 1px solid #6c6c6c;
+        background-color: #f3f3f3;
+        color: #000;
+        padding: 7px;
+    }
+}

@@ -1,0 +1,49 @@
+.navbar{
+    height: 72px !important;
+}
+
+.navbar-brand{
+    /* font-family: 'Great Vibes', cursive; */
+    font-size: 40px;
+    padding: 1px;
+}
+
+.searchBox{
+    width: 30vw;
+    padding: 5px;
+}
+
+.search-icon{
+    display: none;
+}
+
+
+.nav-profile-pic{
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: -2px;
+}
+
+.profile-btn{
+    display: block;
+}
+
+@media only screen and (max-width: 450px){
+    .searchBox{
+        display: none;
+    }
+
+    .search-icon{
+        display: block;
+    }
+
+    .nav-link{
+        margin-left: -10px;
+    }
+    .navbar-brand{
+        font-size: 35px;
+    }
+
+}
