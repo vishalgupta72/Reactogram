@@ -15,9 +15,18 @@
 }
 .custom-btn-blue{
     border: 1px solid #b3e0ff;
-    background-color: #b3e0ff;
+    background-color: #2e9ce6;
     color: #fff;
     padding: 14px;
+    
+    &:hover{
+        background-color: #0769ab;
+        color: #fff;
+        border: 1px solid #0f8ee2;
+        font-weight: bold;
+        transition: 0.2s;
+        
+    }
 }
 
 .custom-btn-white{

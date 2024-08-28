@@ -23,7 +23,6 @@ const Singup = () =>{
         const requestData = {fullName: fullName, email, password}
         axios.post(`${API_BASE_URL}/singup`, requestData)
         .then((result)=>{
-            debugger;
             if(result.status === 201){
                 setLoading(false);
                 Swal.fire({

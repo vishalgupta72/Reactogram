@@ -8,6 +8,26 @@
     padding: 1px;
 }
 
+/* Media query for screen width 375px and below */
+@media (max-width: 415px) {
+    .navbar-brand {
+        display: none;
+    }
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+
 .searchBox{
     width: 30vw;
     padding: 5px;
@@ -28,6 +48,10 @@
 
 .profile-btn{
     display: block;
+    padding: 10px;
+    margin: 0;
+    border-radius: 0;
+        
 }
 
 @media only screen and (max-width: 450px){

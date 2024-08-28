@@ -88,3 +88,7 @@
         padding: 7px;
     }
 }
+
+.dropdown-item{
+    cursor: pointer;
+}

@@ -10,6 +10,7 @@ import Swal from 'sweetalert2'
 import {useDispatch} from 'react-redux'
 
 const Login = () =>{
+    // debugger;
 
 
 
@@ -27,14 +28,14 @@ const Login = () =>{
         const requestData = {email, password}
         axios.post(`${API_BASE_URL}/login`, requestData)
         .then((result)=>{
-            debugger;
             if(result.status === 200){
                 setLoading(false);
                 localStorage.setItem("token", result.data.result.token);
                 localStorage.setItem("user", JSON.stringify(result.data.result.user));
-                console.log(result.data.result.user);
+                // console.log(result.data.result.user);
                 dispatch({type: 'LOGIN_SUCCESS', payload: result.data.result.user});
                 setLoading(false); 
+
                 navigate('/myprofile');
             }
             setEmail('');
