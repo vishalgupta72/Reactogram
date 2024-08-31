@@ -15,9 +15,10 @@ const PostOverview = () => {
   };
 
   const getAllPosts = async () => {
-    const response = await axios.get(`${process.env.SERVER_URL}/allposts`);
+    const response = await fetch(`${process.env.SERVER_URL}/allposts`, {method:"GET"});
     if (response.status === 200) {
-      setAllposts(response.data.posts);
+      const data = await response.json();
+      setAllposts(data.posts);
     } else {
       Swal.fire({
         icon: "error",
