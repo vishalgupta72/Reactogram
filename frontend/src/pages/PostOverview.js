@@ -15,7 +15,7 @@ const PostOverview = () => {
   };
 
   const getAllPosts = async () => {
-    const response = await axios.get(`${API_BASE_URL}/allposts`);
+    const response = await axios.get(`${process.env.SERVER_URL}/allposts`);
     if (response.status === 200) {
       setAllposts(response.data.posts);
     } else {

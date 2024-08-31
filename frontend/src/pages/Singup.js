@@ -21,7 +21,7 @@ const Singup = () =>{
         event.preventDefault();
         setLoading(true);
         const requestData = {fullName: fullName, email, password}
-        axios.post(`${API_BASE_URL}/singup`, requestData)
+        axios.post(`${process.env.SERVER_URL}/singup`, requestData)
         .then((result)=>{
             if(result.status === 201){
                 setLoading(false);
