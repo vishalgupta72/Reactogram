@@ -21,7 +21,7 @@ const Singup = () =>{
         event.preventDefault();
         setLoading(true);
         const requestData = {fullName: fullName, email, password}
-        axios.post(`${process.env.SERVER_URL}/singup`, requestData)
+        axios.post(`${API_BASE_URL}/singup`, requestData)
         .then((result)=>{
             if(result.status === 201){
                 setLoading(false);
@@ -71,7 +71,7 @@ const Singup = () =>{
                                 <input type="email" value={email} onChange={(ev)=>setEmail(ev.target.value)} className="p-2 mb-2 form-control input-bg" name="email" placeholder="email" />
                                 <input type="password" value={password} onChange={(ev)=>setPassword(ev.target.value)} className="p-2 mb-2 form-control input-bg" name="password" placeholder="password" />
                                 <div className="d-grid mt-3">
-                                    <button className="custom-btn custom-btn-blue" type='submit'>Sing up</button>
+                                    <button className="custom-btn custom-btn-blue" type='submit'>Sign up</button>
                                 </div>
 
                                 <div className="my-4">
