@@ -7,8 +7,8 @@ const jwt = require('jsonwebtoken');
 const {JWT_SECRET} = require('../config')
 
 
-//  sign for user
-router.post("/singup", (req, res)=>{
+//  sign up for user
+router.post("/signup", (req, res)=>{
     const {fullName, email, password, profileImg} = req.body;
     if(!fullName || !password || !email){
         return res.status(400).json({error: "One or more mandatory field are empty"});
@@ -23,7 +23,7 @@ router.post("/singup", (req, res)=>{
         .then((hashedPassword) =>{
             const user = new UserModel({fullName, email, password: hashedPassword, profileImg});
             user.save()
-            .then((newUser) =>{
+            .then(() =>{
                 res.status(201).json({result: "User signed up Successgfullly"});
             })
             .catch((err)=>{

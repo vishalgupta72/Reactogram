@@ -23,12 +23,12 @@ const Navbar = () =>{
         <>
         <nav className="navbar navbar-light bg-light shadow-sm">
         <div className="container-fluid">
-            <a href className="navbar-brand"><i className="fa-brands fa-instagram"></i> Reactogram</a>
+            <a className="navbar-brand"><i className="fa-brands fa-instagram"></i> Reactogram</a>
              <form className="d-flex me-md-5 me-sm-1">
                 <input className="searchBox form-control me-4 text-muted" type="search" placeholder="Search" aria-label="Search" />
-                <a className="nav-link search-icon me-4 fs-5" href="!#"><i className="fa-solid fa-magnifying-glass"></i></a>
+                <a className="nav-link search-icon me-4 fs-5" onClick={(e) => e.preventDefault()}><i className="fa-solid fa-magnifying-glass"></i></a>
                 <NavLink className="nav-link me-4 fs-5" to="/posts"><i className="fa-solid fa-house"></i></NavLink>
-                { localStorage.getItem("token") !== null ?  <NavLink className="nav-link me-4 fs-5" to><i className="fa-regular fa-heart"></i></NavLink> : ''}
+                { localStorage.getItem("token") !== null ?  <NavLink className="nav-link me-4 fs-5"><i className="fa-regular fa-heart"></i></NavLink> : ''}
 
                  <div className="dropdown">
                     {/* <button className="me-2 fs-5"data-bs-toggle="dropdown">
@@ -38,7 +38,7 @@ const Navbar = () =>{
                     
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li><NavLink className="dropdown-item ms-1 p-2" to="/myprofile"><i className="fa-regular fa-user"></i> Profile</NavLink></li>
-                        <li><a className="dropdown-item" onClick={()=>logout()} href><i className="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                        <li><a className="dropdown-item" onClick={()=>logout()}><i className="fa-solid fa-right-from-bracket"></i> Logout</a></li>
                     </ul> </> : ''}
                 </div> 
             </form> 

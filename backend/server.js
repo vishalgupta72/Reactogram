@@ -14,17 +14,20 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
-const { MONGODB_URL } = require("./config");
+
+require('dotenv').config()
+
+const { MONGODB_URL } = require("./config.js");
 
 global.__basedir = __dirname;
 
 mongoose.connect(MONGODB_URL);
 
-mongoose.connection.on("connnected", () => {
-  console.log("DB Connected successfully!");
+mongoose.connection.on("connnected", (e) => {
+  console.log("DB Connected successfully!", e);
 });
 mongoose.connection.on("error", (error) => {
-  console.log("DB connection failed");
+  console.log("DB connection failed", error);
 });
 
 require("./models/user_model");

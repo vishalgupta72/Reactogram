@@ -15,7 +15,7 @@ const PostOverview = () => {
   };
 
   const getAllPosts = async () => {
-    const response = await fetch(`https://reactogram-backend.vercel.app/allposts`, {method:"GET"});
+    const response = await fetch(`${API_BASE_URL}/allposts`, {method:"GET"});
     if (response.status === 200) {
       const data = await response.json();
       setAllposts(data.posts);

@@ -21,7 +21,7 @@ const Singup = () =>{
         event.preventDefault();
         setLoading(true);
         const requestData = {fullName: fullName, email, password}
-        axios.post(`${API_BASE_URL}/singup`, requestData)
+        axios.post(`${API_BASE_URL}/signup`, requestData)
         .then((result)=>{
             if(result.status === 201){
                 setLoading(false);
@@ -66,10 +66,10 @@ const Singup = () =>{
                         <div className="card-body px-5">
                             <h4 className="card-tittle text-center fw-bold mt-3">Sing up</h4>
                             <form onSubmit={(e)=>signup(e)}>
-                                <input type="phone" className="p-2 mt-4 mb-2 form-control" name="phone" value="+91 XXXXX XXXXX" placeholder="Phone number" />
-                                <input type="text" value={fullName} onChange={(ev)=>setFullName(ev.target.value)} className="p-2 mb-2 form-control input-bg" name="name" placeholder="Full Name" />
-                                <input type="email" value={email} onChange={(ev)=>setEmail(ev.target.value)} className="p-2 mb-2 form-control input-bg" name="email" placeholder="email" />
-                                <input type="password" value={password} onChange={(ev)=>setPassword(ev.target.value)} className="p-2 mb-2 form-control input-bg" name="password" placeholder="password" />
+                                <input type="phone" className="p-2 mt-4 mb-2 form-control" name="phone" defaultValue="+91 XXXXX XXXXX" placeholder="Phone number" />
+                                <input type="text" defaultValue={fullName} onChange={(ev)=>setFullName(ev.target.value)} className="p-2 mb-2 form-control input-bg" name="name" placeholder="Full Name" />
+                                <input type="email" defaultValue={email} onChange={(ev)=>setEmail(ev.target.value)} className="p-2 mb-2 form-control input-bg" name="email" placeholder="email" />
+                                <input type="password" defaultValue={password} onChange={(ev)=>setPassword(ev.target.value)} className="p-2 mb-2 form-control input-bg" name="password" placeholder="password" />
                                 <div className="d-grid mt-3">
                                     <button className="custom-btn custom-btn-blue" type='submit'>Sign up</button>
                                 </div>
