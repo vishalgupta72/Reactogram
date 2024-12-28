@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const UserModel = mongoose.model("UserModel");
-var bcryptjs = require("bcryptjs");
+// var bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { JWT_SECRET } = require("../config");
 
@@ -16,18 +16,25 @@ router.post("/signup", async (req, res) => {
   }
 
   try {
+    let p = performance.now();
     const userInDB = await UserModel.findOne({ email: email });
+    // console.log("findOne time:", performance.now() - p);
     if (userInDB) {
-      throw new Error("User with this email already registered");
+        throw new Error("User with this email already registered");
     }
-    const hashedPassword = await bcryptjs.hash(password, 16);
+    p = performance.now();
+    // const hashedPassword = await bcryptjs.hash(password, 16);
+    const hashedPassword = password
+    // console.log("bcryptjs time:", performance.now() - p);
+    p = performance.now();
     const user = new UserModel({
-      fullName,
-      email,
-      password: hashedPassword,
-      profileImg,
+        fullName,
+        email,
+        password: hashedPassword,
+        profileImg,
     });
     const result = await user.save();
+    // console.log("user save time:", performance.now() - p);
     if (!result) throw new Error("Signup failed");
 
     res.status(201).json({ result: "User signed up Successgfullly" });
@@ -51,7 +58,10 @@ router.post("/login", (req, res) => {
       if (!userInDB) {
         return res.status(401).json({ error: "Invalid Creadentials" });
       }
-      bcryptjs.compare(password, userInDB.password).then((didMatch) => {
+    //   bcryptjs.compare(password, userInDB.password).then((didMatch) => {
+
+        const didMatch = password === userInDB.password
+
         if (didMatch) {
           const jwtToken = jwt.sign({ _id: userInDB._id }, JWT_SECRET);
           const userInfo = {
@@ -64,7 +74,7 @@ router.post("/login", (req, res) => {
         } else {
           return res.status(401).json({ error: "Invalid Creadentials" });
         }
-      });
+    //   });
     })
     .catch((err) => {
       console.log(err);
