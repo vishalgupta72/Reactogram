@@ -173,8 +173,10 @@ const Profile = () => {
   };
 
   const createProfile = async () => {
+    const userData = JSON.parse(localStorage.getItem("user"));
+    console.log(userData)
     const request = {
-      username: "create username",
+      username: userData._id,
       description: "add bio",
       link: "portfolio link",
       profileImg: "profile img url",
@@ -184,6 +186,7 @@ const Profile = () => {
       request,
       CONFIG_OBJ
     );
+    console.log(response);
   };
 
   const changeEditProfile = async () => {
